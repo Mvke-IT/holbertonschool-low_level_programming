@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * Main Starts the source code
+ * Main Source code begins execution
  *
- * Return Ends the source code
+ * Return to 0
  */
 int main(void)
 {
