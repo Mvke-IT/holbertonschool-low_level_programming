@@ -5,13 +5,6 @@
  * printf: print a message followed by a expression
  * Return: turn 0 when finish
  */
-#include <stdio.h>
-/**
- *main - starts de program
- *variables: c,i,li,lli and f are variables
- *printf: print a massage followed by a expression
- *Return: Return 0 when finish
- */
 int main(void)
 {
     char c;
