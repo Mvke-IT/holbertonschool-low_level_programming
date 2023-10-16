@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * Main Source code begins execution
+ * Main puts will print the text inside of the quatation 
  *
- * Return to 0
+ * Return will make the value of void = 0
  */
 int main(void)
 {
