@@ -6,6 +6,7 @@
  * Return: to 0
  */
 int main(void)
+
 {
 	char low, e, q;
 	e = 'e';
@@ -16,8 +17,8 @@ int main(void)
 	{
 		if (low != e && low != q)
 			putchar(low);
+		low++;
 	}
-	low++;
 	putchar ('\n');
 	return (0);
 }
