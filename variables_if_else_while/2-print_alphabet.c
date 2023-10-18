@@ -3,18 +3,18 @@
 #include <stdio.h>
 
 /**
- * main - Function prints a string of lowercase letters, followed by a new line character.
- * Return: The program prints out the alphabet in lowercase, followed by a new line.
+ * main - Print alphabet
+ * Return: to 0
  */
 int main(void)
 {
 	char c = 'a';
-	
-	while (c <= 'z') 
+
+	while (c <= 'z')
 	{
 		putchar(c);
 		c++;
 	}
 	putchar ('\n');
 	return (0);
- }
+}
