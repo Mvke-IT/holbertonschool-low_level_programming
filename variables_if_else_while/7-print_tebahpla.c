@@ -7,18 +7,12 @@
  */
 int main(void)
 {
+	char c;
 
-	char start = 'z';
-	char end = 'a';
-
-	putchar(start);
-	while (start > end)
-{
-		start--;
-		putchar(start);
+	for (c = 'z'; c >= 'a'; c++)
+	{
+		putchar(c);
 	}
-
 	putchar('\n');
-
 	return 0;
 }
