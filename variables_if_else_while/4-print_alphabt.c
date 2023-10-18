@@ -18,8 +18,7 @@ int main(void)
 			putchar(low);
 	}
 	low++;
-}
 
-return 0;
+	return (0);
 }
 
