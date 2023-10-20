@@ -1,24 +1,41 @@
 #include "main.h"
 
 /**
- * jack_bauer - prints every minute of the day of jack Bauer
- * starting from 00:00 to 23:59
+ * times_table - prints the 9 times table, stratint with 0
+ *
+ * Return: table de multiplication jusqu'a 9
  */
 
-void jack_bauer(void)
+void times_table(void)
 {
-	int hr, min;
+	int i, j, m;
 
-	for (hr = 0; hr <= 23; hr++)
+	for (i = 0; i < 10; i++)
 	{
-		for (min = 0; min <= 59; min++)
+		for (j = 0; j < 10; j++)
 		{
-			_putchar((hr / 10) + '0');
-			_putchar((hr % 10) + '0');
-			_putchar(':');
-			_putchar((min / 10) + '0');
-			_putchar((min % 10) + '0');
-			_putchar('\n');
+			m = j * i;
+			if (j == 0)
+			{
+				_putchar(m + '0');
+			}
+
+			if (m < 10 && j != 0)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(m + '0');
+			}
+
+			if (m >= 10)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar((m / 10) + '0');
+				_putchar((m % 10) + '0');
+			}
 		}
+		_putchar('\n');
 	}
 }
