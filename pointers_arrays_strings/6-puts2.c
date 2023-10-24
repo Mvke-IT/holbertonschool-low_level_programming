@@ -6,16 +6,18 @@
  */
 void puts2(char *str)
 {
-	int c = 0;
-	int length = strlen(str);
-
-	for (c = 0; c < length; c++)
+	int i, m;
 	{
-		if (c % 2 == 0)
+	i=_strlen(str);
+
+	for(m=o; m<i; m++)
+		if ((m%2)==0)
 		{
-			_putchar(*str);
+			_putchar(str[m]);
 		}
-		str++;
-	}
-	_putchar('\n');
+	else
+	{
+		continue;
+}
+}
 }
