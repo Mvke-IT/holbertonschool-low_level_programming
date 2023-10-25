@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 /**
  * *strcpy - runs a script that copy and paste the string
  * @dest: where is going to paste the string
