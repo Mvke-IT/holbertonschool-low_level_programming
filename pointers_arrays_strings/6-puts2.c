@@ -7,7 +7,7 @@
 void puts2(char *str)
 {
 	int i, m;
-	
+
 	for (i = 0; str[i] != '\0'; i++)
 		;
 	for(m = 0; m < i; m++)
@@ -16,10 +16,10 @@ void puts2(char *str)
 		{
 			_putchar(str[m]);
 		}
-	else
-	{
-		continue;
-}
-}
-_putchar ('\n');
+		else
+		{
+			continue;
+		}
+	}
+	_putchar ('\n');
 }
