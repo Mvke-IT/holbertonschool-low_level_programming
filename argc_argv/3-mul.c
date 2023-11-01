@@ -2,9 +2,9 @@
 #include <stdlib.h>
 /**
  * main - starts the program
- * @argc: size of the string
- * @argv: containing the program command
- * Return: Return 0
+ * @argc: lengh of the array
+ * @argv: containing a array of pointers
+ * Return: Return 1 if is error or 0 if is complite
  */
 
 int main(int argc, char *argv[])
