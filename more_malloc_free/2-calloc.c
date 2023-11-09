@@ -6,7 +6,7 @@
  * @size: the data type
  * Return: the value of the pointer
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
+void *_calloc(unsigned int num, unsigned int size)
 {
 	unsigned int i, *n;
 	char *ch;
@@ -21,7 +21,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 	if (size == sizeof(char))
 	{
-		ch = malloc(nmemb * size);
+		ch = malloc(num * size);
 		if (ch == NULL)
 		{
 			return (NULL);
@@ -35,7 +35,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	else
 	{
 
-	n = malloc(nmemb * size);
+	n = malloc(num * size);
 
 	if (n == NULL)
 	{
