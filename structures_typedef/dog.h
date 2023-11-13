@@ -1,3 +1,9 @@
+#include <stdio.h>
+/**
+ *@char*: name and owner
+ *@float: age
+ */
+
 struct dog
 {
 char* name;
