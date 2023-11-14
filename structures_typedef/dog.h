@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
  *struct dog
- *@name: is name 
+ *@name: is name
  *@age:is age
  *@owner: owner is dog
  *return: to 0
