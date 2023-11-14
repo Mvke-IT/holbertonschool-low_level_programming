@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_dog - print structure
+ * print_dog - print structure adding
  * @d: structure
  * Return: 0
  */
