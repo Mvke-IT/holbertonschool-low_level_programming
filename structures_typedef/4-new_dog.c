@@ -1,44 +1,79 @@
-#include "dog.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "main.h"
+
+char *_strdup(char *str);
 /**
- * new_dog - creates a new dog
- * @name: name of the dog
- * @age: age of the dog
- * @owner: owner name
- * Return: Null if fails otherwise the value of the pointer
+ * new_dog - creates a structure
+ * @name: char
+ * @age: float
+ * @owner: char
+ * Return: a pointer to the struct dog or NULL
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *n;
+	dog_t *new_d = NULL;
 
-	n = malloc(sizeof(dog_t));
+	new_d = malloc(sizeof(dog_t));
+	if (new_d != NULL)
+	{
+		new_d->name = _strdup(name);
+		if (new_d->name == NULL)
+		{
+			free(new_d);
+			return (NULL);
+		}
+		new_d->owner = _strdup(owner);
+		if (new_d->owner == NULL)
+		{
+			free(new_d->name);
+			free(new_d);
+			return (NULL);
+		}
+		new_d->age = age;
+	}
+	return (new_d);
+}
 
-	if (n == NULL)
-	{
-		return (NULL);
-	}
+/**
+ * _strlen - returns the length of a string.
+ * @s: pointer to check
+ *
+ * Return: Always 0.
+ */
+int _strlen(char *s)
+{
+	int len = 0;
 
-	n->name = malloc(sizeof(name) * strlen(name));
-	if (n->name == NULL)
+	while (*s)
 	{
-		free(n);
-		return (NULL);
+		len++;
+		s = s + 1;
 	}
+	return (len);
+}
 
-	n->owner = malloc(sizeof(owner) * strlen(owner));
-	if (n->owner == NULL)
+/**
+ * _strdup - copy of the string given as a parameter
+ * @str: string of char
+ *
+ * Description: The _strdup() function returns a pointer to a new string which
+ * is a duplicate of the string str.
+ * Returns NULL if str = NULL
+ *
+ * Return: a pointer to the duplicated string.
+ */
+
+char *_strdup(char *str)
+{
+	char *res = NULL;
+	int i = 0;
+
+	if (str != NULL)
+		res = malloc(_strlen(str) + 1);
+	if (res != NULL)
 	{
-		free(n->name);
-		free(n);
-		return (NULL);
+		for (i = 0; i <= _strlen(str); i++)
+			res[i] = str[i];
 	}
-	else
-	{
-		strcpy(n->name, name);
-		n->age = age;
-		strcpy(n->owner, owner);
-	}
-	return (n);
+	return (res);
 }
