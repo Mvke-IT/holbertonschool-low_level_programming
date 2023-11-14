@@ -2,7 +2,7 @@
 #define dog_h
 #include <stdio.h>
 /**
- *struct dog
+ *struct dog - define struncture
  *@name: is name
  *@age:is age
  *@owner: owner is dog
@@ -10,9 +10,9 @@
  */
 typedef struct dog
 {
-  char *name;
-  float age;
-  char *owner;
+char *name;
+float age;
+char *owner;
 } dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
