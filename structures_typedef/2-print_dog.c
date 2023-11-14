@@ -1,6 +1,7 @@
-#include "main.h"
+#include "dog.h"
+#include <stdio.h>
 /**
- * print_dog - print structure adding
+ * print_dog - print structure
  * @d: structure
  * Return: 0
  */
