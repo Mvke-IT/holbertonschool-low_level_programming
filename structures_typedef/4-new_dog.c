@@ -1,81 +1,48 @@
-#include "main.h"
+#include <stdio.h>
 #include "dog.h"
+#include <string.h>
 #include <stdlib.h>
-#include <stdlib.h>
-char *_strdup(char *str);
 /**
- * new_dog - creates a structure
- * @name: char
- * @age: float
- * @owner: char
- * Return: a pointer to the struct dog or NULL
+ * new_dog - creates new dog
+ * @name: the name of the dog
+ * @age: age of the dog
+ * @owner: name of the owner
+ * Return: Return a pointer to a new dog
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_d = NULL;
+	dog_t *newDog = malloc(sizeof(dog_t));
 
-	new_d = malloc(sizeof(dog_t));
-	if (new_d != NULL)
+	if (newDog == NULL)
 	{
-		new_d->name = _strdup(name);
-		if (new_d->name == NULL)
+		return (NULL);
+	}
+	else
+	{
+		newDog->name = malloc(strlen(name) + 1);
+		if (newDog->name == NULL)
 		{
-			free(new_d);
+			free(newDog);
 			return (NULL);
 		}
-		new_d->owner = _strdup(owner);
-		if (new_d->owner == NULL)
+		else
 		{
-			free(new_d->name);
-			free(new_d);
+			strcpy(newDog->name, name);
+		}
+		newDog->age = age;
+
+		newDog->owner = malloc(strlen(owner) + 1);
+		if (newDog->owner == NULL);
+		{
+			free(newDog->name);
+			free(newdog);
 			return (NULL);
 		}
-		new_d->age = age;
+		else
+		{
+			strcpy(newDog->owner, owner);
+		}
 	}
-	return (new_d);
-}
-
-/**
- * _strlen - returns the length of a string.
- * @s: pointer to check
- *
- * Return: Always 0.
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s)
-	{
-		len++;
-		s = s + 1;
-	}
-	return (len);
-}
-
-/**
- * _strdup - copy of the string given as a parameter
- * @str: string of char
- *
- * Description: The _strdup() function returns a pointer to a new string which
- * is a duplicate of the string str.
- * Returns NULL if str = NULL
- *
- * Return: a pointer to the duplicated string.
- */
-
-char *_strdup(char *str)
-{
-	char *res = NULL;
-	int i = 0;
-
-	if (str != NULL)
-		res = malloc(_strlen(str) + 1);
-	if (res != NULL)
-	{
-		for (i = 0; i <= _strlen(str); i++)
-			res[i] = str[i];
-	}
-	return (res);
+	return (newDog);
 }
