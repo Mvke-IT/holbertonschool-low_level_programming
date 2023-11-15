@@ -1,4 +1,6 @@
 #include "main.h"
+#include "dog.h"
+#include <stdlib.h>
 #include <stdlib.h>
 char *_strdup(char *str);
 /**
