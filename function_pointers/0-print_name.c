@@ -6,7 +6,7 @@
  * @name: name to print
  */
 
-void print_name(char *name, void (*f)(char *))
+void print_name(char *name, void (*m)(char *))
 {
 	if (m != NULL && name != NULL)
 	{
