@@ -1,5 +1,5 @@
 #include "function_pointers.h"
-#include <stddef.h>
+#include <stdlib.h>
 /**
  * print_name - function that connects function that needs 1 char
  * @m: is a pointer to function with a char
