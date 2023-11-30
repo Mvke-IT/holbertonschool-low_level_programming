@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <string.h>
 /**
  * add_node - functions that adds a new mode at the beginning of list
  * @head: pointing to the beginning of the string
