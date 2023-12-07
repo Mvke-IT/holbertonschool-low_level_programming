@@ -1,69 +1,42 @@
 #include "main.h"
-#include <stddef.h>
+
 /**
- * main - copies the content of a file to another file
- * @argc: argument count
- * @argv: array of arguments
- * Return: integer
+ * main - append text to file
+ * @argc: argument counter
+ * @argv: argument vector
+ * Return: 1 or -1 if failed
  */
 int main(int argc, char *argv[])
 {
-	int fd1, fd2,  readcount, writecount;
+	int fp = 0, rd = 0, wr = 0, pp = 0;
 	char *buf[1024];
 
 	if (argc != 3)
+		dprintf(2, "Usage: cp file_from file_to\n"), exit(97);
+	if (!argv[1])
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
 	}
-	fd1 = open(argv[1], O_RDONLY);
-	if (fd1 == -1 || argv[1] == NULL)
+	pp = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	if (pp == -1)
+		dprintf(2, "Error: Can't write to %s\n", argv[2]), exit(99);
+	fp = open(argv[1], O_RDONLY);
+	if (fp == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (fd2 == -1 || argv[2] == NULL)
+	while ((rd = read(fp, buf, 1024)) != 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		if (rd == -1)
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
+		wr = write(pp, buf, rd);
+		if (wr == -1)
+			dprintf(2, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
-	while (1)
-	{
-		readcount = read(fd1, buf, 1024);
-		if (readcount == 0)
-			break;
-		if (readcount == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
-		writecount = write(fd2, buf, readcount);
-		if (writecount == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
-	}
-	validating_close(fd1, fd2);
+	if ((close(fp)) == -1)
+		dprintf(2, "Error: Can't close fd %d\n", fp), exit(100);
+	if ((close(pp)) == -1)
+		dprintf(2, "Error: Can't close fd %d\n", pp), exit(100);
 	return (0);
-}
-
-/**
- * validating_close - function that validates the close
- * @fd1: validates the source code close
- * @fd2: validates the copy code close
- */
-void validating_close(int fd1, int fd2)
-{
-	if (close(fd1) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd1);
-		exit(100);
-	}
-	if (close(fd2) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd2);
-		exit(100);
-	}
 }
